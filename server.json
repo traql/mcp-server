@@ -1,0 +1,43 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.traql/mcp-server",
+  "title": "traql",
+  "description": "AML risk scoring for crypto addresses and transactions on Ethereum, BSC, TRON, TON, Bitcoin",
+  "version": "0.1.0",
+  "websiteUrl": "https://traql.io",
+  "repository": {
+    "url": "https://github.com/traql/mcp-server",
+    "source": "github"
+  },
+  "packages": [
+    {
+      "registryType": "npm",
+      "registryBaseUrl": "https://registry.npmjs.org",
+      "identifier": "@traql/mcp",
+      "version": "0.1.0",
+      "transport": {
+        "type": "stdio"
+      },
+      "environmentVariables": [
+        {
+          "name": "TRAQL_API_KEY",
+          "description": "API key from https://app.traql.io. Without it the server runs on the keyless tier, which returns a coarse verdict and is payment-gated on the hosted API.",
+          "isRequired": false,
+          "isSecret": true
+        },
+        {
+          "name": "TRAQL_API_URL",
+          "description": "Base URL of the traql API. Override only when self-hosting.",
+          "isRequired": false,
+          "default": "https://api.traql.io"
+        },
+        {
+          "name": "TRAQL_TIMEOUT_MS",
+          "description": "Per-request timeout in milliseconds.",
+          "isRequired": false,
+          "default": "30000"
+        }
+      ]
+    }
+  ]
+}

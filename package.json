@@ -1,0 +1,61 @@
+{
+  "name": "@traql/mcp",
+  "mcpName": "io.traql/mcp-server",
+  "version": "0.1.0",
+  "description": "MCP server for traql — AML risk scoring for crypto addresses and transactions on Ethereum, BSC, TRON, TON and Bitcoin.",
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.js",
+  "bin": {
+    "traql-mcp": "./dist/index.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "homepage": "https://traql.io",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/traql/mcp-server.git"
+  },
+  "bugs": {
+    "url": "https://github.com/traql/mcp-server/issues"
+  },
+  "keywords": [
+    "mcp",
+    "modelcontextprotocol",
+    "aml",
+    "compliance",
+    "sanctions",
+    "ofac",
+    "risk-scoring",
+    "blockchain",
+    "crypto",
+    "ethereum",
+    "bitcoin",
+    "tron",
+    "ton",
+    "wallet-screening",
+    "kyt"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit && tsc -p tsconfig.test.json",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "prepublishOnly": "npm run build && npm test"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.30.0",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "typescript": "^5.7.0",
+    "vitest": "^4.1.11"
+  }
+}

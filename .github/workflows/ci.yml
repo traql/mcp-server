@@ -1,0 +1,54 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: ["18", "20", "22"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - run: npm run typecheck
+      - run: npm test
+
+  metadata:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: server.json matches package.json
+        run: |
+          python3 - <<'PY'
+          import json, sys
+
+          pkg = json.load(open("package.json"))
+          srv = json.load(open("server.json"))
+          errors = []
+
+          if pkg["mcpName"] != srv["name"]:
+              errors.append(f'package.json mcpName {pkg["mcpName"]!r} != server.json name {srv["name"]!r}')
+          if len(srv["description"]) > 100:
+              errors.append(f'server.json description is {len(srv["description"])} chars, max is 100')
+
+          npm_pkg = next(p for p in srv["packages"] if p["registryType"] == "npm")
+          if npm_pkg["identifier"] != pkg["name"]:
+              errors.append(f'server.json npm identifier {npm_pkg["identifier"]!r} != package name {pkg["name"]!r}')
+          for version in (srv["version"], npm_pkg["version"]):
+              if version != pkg["version"]:
+                  errors.append(f'version {version!r} does not match package.json {pkg["version"]!r}')
+
+          if errors:
+              print("\n".join(errors))
+              sys.exit(1)
+          print("server.json is consistent with package.json")
+          PY
