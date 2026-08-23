@@ -7,11 +7,17 @@ Internal notes for cutting a release and keeping directory listings current.
 The package is scoped, so the npm organisation must exist and the first publish
 needs explicit public access.
 
+The `traql` organisation has to be created once at
+<https://www.npmjs.com/org/create> — npm has no CLI command for it. The free
+plan covers unlimited public packages.
+
 ```bash
 npm login
-npm org create traql          # once, if the scope is not taken yet
 npm publish --access public   # subsequent releases go through the tag workflow
 ```
+
+Scoped packages default to restricted access, hence `--access public` on the
+first publish.
 
 ## 2. MCP Registry
 
