@@ -31,10 +31,18 @@ jobs:
             exit 1
           fi
 
+      # Both publishes are skipped when the version is already out, so a tag can
+      # be pushed after a manual release without failing the run.
       - name: Publish to npm
-        run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          VERSION=$(node -p 'require("./package.json").version')
+          if npm view "@traql/mcp@$VERSION" version >/dev/null 2>&1; then
+            echo "@traql/mcp@$VERSION is already on npm, skipping"
+          else
+            npm publish --access public
+          fi
 
       - name: Install mcp-publisher
         run: |
@@ -46,5 +54,12 @@ jobs:
         env:
           MCP_DNS_PRIVATE_KEY: ${{ secrets.MCP_DNS_PRIVATE_KEY }}
         run: |
-          ./mcp-publisher login dns --domain traql.io --private-key "$MCP_DNS_PRIVATE_KEY"
-          ./mcp-publisher publish
+          VERSION=$(node -p 'require("./package.json").version')
+          PUBLISHED=$(curl -sf "https://registry.modelcontextprotocol.io/v0/servers?search=io.traql/mcp-server" \
+            | python3 -c "import json,sys; print(any(s.get('server',s).get('version')=='$VERSION' for s in json.load(sys.stdin).get('servers',[])))")
+          if [ "$PUBLISHED" = "True" ]; then
+            echo "io.traql/mcp-server $VERSION is already in the registry, skipping"
+          else
+            ./mcp-publisher login dns --domain traql.io --private-key "$MCP_DNS_PRIVATE_KEY"
+            ./mcp-publisher publish
+          fi
