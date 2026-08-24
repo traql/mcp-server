@@ -92,10 +92,11 @@ Sign up at [app.traql.io](https://app.traql.io/signup), confirm your email —
 free checks are included — and issue a key under **API keys**. The secret is
 shown once; it can be rotated or revoked at any time.
 
-Without a key the server still runs, but on the keyless tier: a single coarse
-reason phrase instead of itemized signals, tight rate limits, and on the hosted
-API a per-call [x402](https://x402.org) payment requirement. For agent use, set
-a key.
+Without a key the server still runs, on the keyless tier: the hosted API serves
+**3 free checks per IP per day** so you can try it immediately, then asks for
+per-call payment over [x402](https://x402.org). Keyless responses are also
+coarser — a single reason phrase instead of itemized signals — and rate limits
+are tighter. For anything beyond a first look, set a key.
 
 ## Configuration
 

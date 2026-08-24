@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.1.0/plugin.schema.json",
   "name": "traql",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "AML risk scoring for crypto addresses and transactions on Ethereum, BSC, TRON, TON and Bitcoin.",
   "author": {
     "name": "traql",

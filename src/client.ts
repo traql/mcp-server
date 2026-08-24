@@ -151,8 +151,8 @@ export class TraqlClient {
         code: "payment_required",
         status,
         message: price
-          ? `this call is payment-gated on the keyless tier (${price} in USDC on ${accept?.network ?? "base"} per call)`
-          : "this call is payment-gated on the keyless tier",
+          ? `the free keyless allowance for this IP is used up; further calls cost ${price} in USDC on ${accept?.network ?? "base"}`
+          : "the free keyless allowance for this IP is used up and further calls are payment-gated",
         hint: `Set TRAQL_API_KEY to use an account balance instead — sign up at ${DASHBOARD}/signup for free checks. Paying per call requires an x402-capable wallet, which this server does not carry.`,
       });
     }

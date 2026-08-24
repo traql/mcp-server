@@ -3,7 +3,7 @@
   "name": "io.traql/mcp-server",
   "title": "traql",
   "description": "AML risk scoring for crypto addresses and transactions on Ethereum, BSC, TRON, TON, Bitcoin",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "websiteUrl": "https://traql.io",
   "repository": {
     "url": "https://github.com/traql/mcp-server",
@@ -14,14 +14,14 @@
       "registryType": "npm",
       "registryBaseUrl": "https://registry.npmjs.org",
       "identifier": "@traql/mcp",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "transport": {
         "type": "stdio"
       },
       "environmentVariables": [
         {
           "name": "TRAQL_API_KEY",
-          "description": "API key from https://app.traql.io. Without it the server runs on the keyless tier, which returns a coarse verdict and is payment-gated on the hosted API.",
+          "description": "API key from https://app.traql.io. Without it the server runs on the keyless tier: a coarse verdict, 3 free checks per IP per day, then payment-gated on the hosted API.",
           "isRequired": false,
           "isSecret": true
         },

@@ -16,8 +16,8 @@ rather than directly.
 
 Environment:
   TRAQL_API_KEY     API key from https://app.traql.io. Without it the server
-                    falls back to the keyless tier, which returns a coarse
-                    verdict and is payment-gated on the hosted API.
+                    falls back to the keyless tier: a coarse verdict, 3 free
+                    checks per day, then payment-gated on the hosted API.
   TRAQL_API_URL     Base URL of the API. Defaults to ${DEFAULT_BASE_URL}.
                     Point it at your own deployment if you self-host.
   TRAQL_TIMEOUT_MS  Per-request timeout in milliseconds. Defaults to ${DEFAULT_TIMEOUT_MS}.
@@ -48,7 +48,7 @@ async function main(): Promise<void> {
   if (!client.hasApiKey) {
     // stderr only: stdout carries the protocol stream.
     console.error(
-      "traql-mcp: TRAQL_API_KEY is not set — running on the keyless tier. Responses will be coarse, and the hosted API requires payment for keyless calls. Get a key at https://app.traql.io.",
+      "traql-mcp: TRAQL_API_KEY is not set — running on the keyless tier. The hosted API allows 3 free checks a day from your IP and returns a coarse verdict without itemized reasons; beyond that it asks for payment. Get a key at https://app.traql.io.",
     );
   }
 
