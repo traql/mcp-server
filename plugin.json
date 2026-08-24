@@ -1,0 +1,23 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.1.0/plugin.schema.json",
+  "name": "traql",
+  "version": "0.1.0",
+  "description": "AML risk scoring for crypto addresses and transactions on Ethereum, BSC, TRON, TON and Bitcoin.",
+  "author": {
+    "name": "traql",
+    "url": "https://traql.io"
+  },
+  "homepage": "https://traql.io/mcp-server",
+  "repository": "https://github.com/traql/mcp-server",
+  "license": "MIT",
+  "keywords": [
+    "aml",
+    "compliance",
+    "sanctions",
+    "ofac",
+    "risk-scoring",
+    "blockchain",
+    "crypto",
+    "wallet-screening"
+  ]
+}
