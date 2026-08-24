@@ -3,7 +3,7 @@
 [![npm](https://img.shields.io/npm/v/@traql/mcp)](https://www.npmjs.com/package/@traql/mcp)
 [![CI](https://github.com/traql/mcp-server/actions/workflows/ci.yml/badge.svg)](https://github.com/traql/mcp-server/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
-[![Glama](https://glama.ai/mcp/servers/a3u3td8e46/badges/score.svg)](https://glama.ai/mcp/servers/a3u3td8e46)
+[![Glama](https://glama.ai/mcp/servers/traql/mcp-server/badges/score.svg)](https://glama.ai/mcp/servers/traql/mcp-server)
 
 AML and compliance risk scoring for crypto addresses and transactions, exposed to
 AI agents over the [Model Context Protocol](https://modelcontextprotocol.io).
