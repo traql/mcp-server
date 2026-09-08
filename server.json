@@ -3,7 +3,7 @@
   "name": "io.traql/mcp-server",
   "title": "traql",
   "description": "AML risk scoring for crypto addresses and transactions on Ethereum, BSC, TRON, TON, Bitcoin",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "websiteUrl": "https://traql.io",
   "repository": {
     "url": "https://github.com/traql/mcp-server",
@@ -14,7 +14,7 @@
       "registryType": "npm",
       "registryBaseUrl": "https://registry.npmjs.org",
       "identifier": "@traql/mcp",
-      "version": "0.1.1",
+      "version": "0.1.2",
       "transport": {
         "type": "stdio"
       },

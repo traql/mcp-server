@@ -37,13 +37,6 @@ export function createServer(client: TraqlClient, version: string): McpServer {
     },
   );
 
-  const annotations = {
-    readOnlyHint: true,
-    destructiveHint: false,
-    idempotentHint: false,
-    openWorldHint: true,
-  };
-
   server.registerTool(
     "check_address",
     {
@@ -51,7 +44,14 @@ export function createServer(client: TraqlClient, version: string): McpServer {
       description: CHECK_ADDRESS_DESCRIPTION,
       inputSchema: checkAddressInput,
       outputSchema: checkOutput,
-      annotations,
+      annotations: {
+        // Spelled out on each tool: directory scanners read these hints
+        // statically and do not follow a shared constant.
+        readOnlyHint: true,
+        destructiveHint: false,
+        idempotentHint: false,
+        openWorldHint: true,
+      },
     },
     async ({ chain, address }) => {
       try {
@@ -69,7 +69,14 @@ export function createServer(client: TraqlClient, version: string): McpServer {
       description: SCREEN_TRANSACTION_DESCRIPTION,
       inputSchema: screenTransactionInput,
       outputSchema: checkOutput,
-      annotations,
+      annotations: {
+        // Spelled out on each tool: directory scanners read these hints
+        // statically and do not follow a shared constant.
+        readOnlyHint: true,
+        destructiveHint: false,
+        idempotentHint: false,
+        openWorldHint: true,
+      },
     },
     async (args) => {
       const request = buildScreenRequest(args);

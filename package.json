@@ -1,7 +1,7 @@
 {
   "name": "@traql/mcp",
   "mcpName": "io.traql/mcp-server",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "MCP server for traql — AML risk scoring for crypto addresses and transactions on Ethereum, BSC, TRON, TON and Bitcoin.",
   "license": "MIT",
   "type": "module",
