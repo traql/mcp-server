@@ -5,6 +5,7 @@
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
 [![Glama](https://glama.ai/mcp/servers/traql/mcp-server/badges/score.svg)](https://glama.ai/mcp/servers/traql/mcp-server)
 [![M8ven Live Monitored](https://m8ven.ai/badge/mcp/traql-mcp-server-mzbay7)](https://m8ven.ai/mcp/traql-mcp-server-mzbay7)
+[![mcprush](https://mcprush.com/badge/traql-mcp/score.svg)](https://mcprush.com/traql/traql-mcp)
 
 AML and compliance risk scoring for crypto addresses and transactions, exposed to
 AI agents over the [Model Context Protocol](https://modelcontextprotocol.io).
